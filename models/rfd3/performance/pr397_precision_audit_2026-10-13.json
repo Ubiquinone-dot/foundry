@@ -1,0 +1,571 @@
+{
+  "source": {
+    "upstream": "8bffbcb9bec7eb8c3be0813f87d33c98faa0f5d2",
+    "candidate": "754d1caae5a74b35a3bfcf68169e459474b7dbc4"
+  },
+  "environment": {
+    "gpu": "NVIDIA H200",
+    "driver": "595.71.05",
+    "torch": "2.11.0+cu128",
+    "triton": "3.6.0",
+    "atomworks": "2.2.1",
+    "biotite": "1.4.0",
+    "normalization": "PyTorch RMSNorm fallback; Apex not installed"
+  },
+  "checkpoint_sha256": "9b3f85923e0d51e9453e15cdd2f8c666e7ce096a60577f57d11bbc54ae6d67c1",
+  "protocol": {
+    "residues": 40,
+    "examples": 1,
+    "diffusion_samples": 1,
+    "schedule_points": 200,
+    "recycles": 2,
+    "atom_capacity": 768,
+    "token_capacity": 128,
+    "slot_capacity": 14,
+    "noise_seed": 919,
+    "input_features": "serialized once from upstream and reused",
+    "noise": "identical injected tensors",
+    "motif_case": false,
+    "refolding_performed": false
+  },
+  "tests": {
+    "existing_passed": 54,
+    "existing_platform_opt_in_skips": 4,
+    "added_passed": 4
+  },
+  "default_candidate_vs_upstream": {
+    "torch": "2.11.0+cu128",
+    "gpu": "NVIDIA H200",
+    "steps": 200,
+    "legacy_first": {
+      "X_L": {
+        "max_abs": 0.09302616119384766,
+        "rms": 0.015990769490599632,
+        "reference_rms": 0.9764984846115112,
+        "finite": true,
+        "exact": false
+      },
+      "sequence_logits_I": {
+        "max_abs": 36.0,
+        "rms": 4.815990924835205,
+        "reference_rms": 329.9920959472656,
+        "finite": true,
+        "exact": false
+      }
+    },
+    "legacy_rollout": {
+      "max_abs": 8.967103004455566,
+      "rms": 2.3782358169555664,
+      "reference_rms": 5.75668478012085,
+      "finite": true,
+      "exact": false
+    },
+    "padded_eager": {
+      "elapsed_s": 11.279802269069478,
+      "coordinates": {
+        "max_abs": 9.613794326782227,
+        "rms": 2.462689161300659,
+        "reference_rms": 5.75668478012085,
+        "finite": true,
+        "exact": false
+      },
+      "logits": {
+        "max_abs": 1104.0,
+        "rms": 167.60792541503906,
+        "reference_rms": 746.3536987304688,
+        "finite": true,
+        "exact": false
+      },
+      "trajectory": [
+        {
+          "step": 0,
+          "max_abs": 0.5468719005584717,
+          "rms": 0.10688626021146774,
+          "reference_rms": 2.5866596698760986,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 1,
+          "max_abs": 0.9081970453262329,
+          "rms": 0.13435684144496918,
+          "reference_rms": 2.842400550842285,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 9,
+          "max_abs": 0.46874499320983887,
+          "rms": 0.0868786871433258,
+          "reference_rms": 2.9372856616973877,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 49,
+          "max_abs": 0.5468096733093262,
+          "rms": 0.1232975572347641,
+          "reference_rms": 3.5159661769866943,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 99,
+          "max_abs": 0.29411065578460693,
+          "rms": 0.04992685094475746,
+          "reference_rms": 4.2435302734375,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 198,
+          "max_abs": 9.616758346557617,
+          "rms": 2.462709665298462,
+          "reference_rms": 5.756781578063965,
+          "finite": true,
+          "exact": false
+        }
+      ]
+    },
+    "padded_compiled": {
+      "elapsed_s": 119.82963512209244,
+      "coordinates": {
+        "max_abs": 11.133705139160156,
+        "rms": 3.456376552581787,
+        "reference_rms": 5.75668478012085,
+        "finite": true,
+        "exact": false
+      },
+      "logits": {
+        "max_abs": 912.0,
+        "rms": 180.8285675048828,
+        "reference_rms": 746.3536987304688,
+        "finite": true,
+        "exact": false
+      },
+      "trajectory": [
+        {
+          "step": 0,
+          "max_abs": 1.156243085861206,
+          "rms": 0.18530917167663574,
+          "reference_rms": 2.5866596698760986,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 1,
+          "max_abs": 0.5361328125,
+          "rms": 0.11511106789112091,
+          "reference_rms": 2.842400550842285,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 9,
+          "max_abs": 0.429682195186615,
+          "rms": 0.09848200529813766,
+          "reference_rms": 2.9372856616973877,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 49,
+          "max_abs": 0.3749351501464844,
+          "rms": 0.09375307708978653,
+          "reference_rms": 3.5159661769866943,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 99,
+          "max_abs": 0.24633455276489258,
+          "rms": 0.068081334233284,
+          "reference_rms": 4.2435302734375,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 198,
+          "max_abs": 11.137876510620117,
+          "rms": 3.4563872814178467,
+          "reference_rms": 5.756781578063965,
+          "finite": true,
+          "exact": false
+        }
+      ]
+    }
+  },
+  "default_upstream_repeat": {
+    "torch": "2.11.0+cu128",
+    "gpu": "NVIDIA H200",
+    "steps": 200,
+    "legacy_first": {
+      "X_L": {
+        "max_abs": 0.09302616119384766,
+        "rms": 0.016766257584095,
+        "reference_rms": 0.9764984846115112,
+        "finite": true,
+        "exact": false
+      },
+      "sequence_logits_I": {
+        "max_abs": 28.0,
+        "rms": 4.772665023803711,
+        "reference_rms": 329.9920959472656,
+        "finite": true,
+        "exact": false
+      }
+    },
+    "legacy_rollout": {
+      "max_abs": 11.781349182128906,
+      "rms": 3.465393304824829,
+      "reference_rms": 5.75668478012085,
+      "finite": true,
+      "exact": false
+    },
+    "initializer": {
+      "Q_L_init": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 1.502439022064209,
+        "finite": true,
+        "exact": true
+      },
+      "C_L": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 1.797071099281311,
+        "finite": true,
+        "exact": true
+      },
+      "P_LL": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 10.489127159118652,
+        "finite": true,
+        "exact": true
+      },
+      "S_I": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 0.6451442241668701,
+        "finite": true,
+        "exact": true
+      },
+      "Z_II": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 6.224577903747559,
+        "finite": true,
+        "exact": true
+      }
+    }
+  },
+  "default_structure_comparison": {
+    "padded_compiled": {
+      "CA_aligned_RMSD_A": 4.923759987519758,
+      "backbone_aligned_RMSD_A": 4.852813082887256,
+      "CA_distance_min_A": 3.76587176322937,
+      "CA_distance_max_A": 3.854627847671509,
+      "finite": true,
+      "sequence_agreement": 0.175
+    },
+    "padded_eager": {
+      "CA_aligned_RMSD_A": 3.164044139783875,
+      "backbone_aligned_RMSD_A": 3.122807679793268,
+      "CA_distance_min_A": 3.766246795654297,
+      "CA_distance_max_A": 3.8712947368621826,
+      "finite": true,
+      "sequence_agreement": 0.325
+    },
+    "upstream_repeat_legacy": {
+      "CA_aligned_RMSD_A": 4.903506669291923,
+      "backbone_aligned_RMSD_A": 4.830734203138062,
+      "CA_distance_min_A": 3.7650532722473145,
+      "CA_distance_max_A": 3.869636058807373,
+      "finite": true,
+      "sequence_agreement": 0.2
+    },
+    "reference_geometry": {
+      "CA_distance_min_A": 3.770040512084961,
+      "CA_distance_max_A": 3.8521993160247803
+    }
+  },
+  "strict_failure": "Both pristine upstream and candidate legacy raise: index_reduce_cuda does not have a deterministic implementation.",
+  "diagnostic_intervention": "Replace only legacy scatter_mean with explicit per-token FP32 mean; set PYTHONHASHSEED=0 CUBLAS_WORKSPACE_CONFIG=:4096:8 TORCHINDUCTOR_DETERMINISTIC=1 and torch.use_deterministic_algorithms(True). This is not pristine upstream.",
+  "diagnostic_candidate_vs_upstream": {
+    "torch": "2.11.0+cu128",
+    "gpu": "NVIDIA H200",
+    "steps": 200,
+    "legacy_first": {
+      "X_L": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 0.9760475158691406,
+        "finite": true,
+        "exact": true
+      },
+      "sequence_logits_I": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 329.408447265625,
+        "finite": true,
+        "exact": true
+      }
+    },
+    "legacy_rollout": {
+      "max_abs": 0.0,
+      "rms": 0.0,
+      "reference_rms": 5.269064903259277,
+      "finite": true,
+      "exact": true
+    },
+    "initializer": {
+      "Q_L_init": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 1.502439022064209,
+        "finite": true,
+        "exact": true
+      },
+      "C_L": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 1.797071099281311,
+        "finite": true,
+        "exact": true
+      },
+      "P_LL": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 10.489127159118652,
+        "finite": true,
+        "exact": true
+      },
+      "S_I": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 0.6451442241668701,
+        "finite": true,
+        "exact": true
+      },
+      "Z_II": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "reference_rms": 6.224577903747559,
+        "finite": true,
+        "exact": true
+      }
+    },
+    "padded_eager": {
+      "elapsed_s": 22.306874865898862,
+      "fixed_input_denoiser": {
+        "X_L": {
+          "max_abs": 0.09302616119384766,
+          "rms": 0.016535617411136627,
+          "reference_rms": 0.9760475158691406,
+          "finite": true,
+          "exact": false
+        },
+        "sequence_logits_I": {
+          "max_abs": 28.0,
+          "rms": 4.807052135467529,
+          "reference_rms": 329.408447265625,
+          "finite": true,
+          "exact": false
+        }
+      },
+      "coordinates": {
+        "max_abs": 7.855330944061279,
+        "rms": 1.6313151121139526,
+        "reference_rms": 5.269064903259277,
+        "finite": true,
+        "exact": false
+      },
+      "logits": {
+        "max_abs": 936.0,
+        "rms": 130.97409057617188,
+        "reference_rms": 707.7841186523438,
+        "finite": true,
+        "exact": false
+      },
+      "trajectory": [
+        {
+          "step": 0,
+          "max_abs": 0.3593728542327881,
+          "rms": 0.07851409167051315,
+          "reference_rms": 2.5891458988189697,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 1,
+          "max_abs": 0.9179622530937195,
+          "rms": 0.12977787852287292,
+          "reference_rms": 2.8471901416778564,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 9,
+          "max_abs": 0.6640534400939941,
+          "rms": 0.12942178547382355,
+          "reference_rms": 2.9449691772460938,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 49,
+          "max_abs": 0.5311874747276306,
+          "rms": 0.13064013421535492,
+          "reference_rms": 3.5160036087036133,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 99,
+          "max_abs": 0.4186885356903076,
+          "rms": 0.06066498905420303,
+          "reference_rms": 4.241883754730225,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 198,
+          "max_abs": 7.856003761291504,
+          "rms": 1.6313376426696777,
+          "reference_rms": 5.269170761108398,
+          "finite": true,
+          "exact": false
+        }
+      ]
+    },
+    "padded_compiled": {
+      "elapsed_s": 111.98229323187843,
+      "fixed_input_denoiser": {
+        "X_L": {
+          "max_abs": 0.12403547763824463,
+          "rms": 0.019340921193361282,
+          "reference_rms": 0.9760475158691406,
+          "finite": true,
+          "exact": false
+        },
+        "sequence_logits_I": {
+          "max_abs": 28.0,
+          "rms": 5.542437553405762,
+          "reference_rms": 329.408447265625,
+          "finite": true,
+          "exact": false
+        }
+      },
+      "coordinates": {
+        "max_abs": 9.525064468383789,
+        "rms": 1.814251184463501,
+        "reference_rms": 5.269064903259277,
+        "finite": true,
+        "exact": false
+      },
+      "logits": {
+        "max_abs": 1120.0,
+        "rms": 157.14410400390625,
+        "reference_rms": 707.7841186523438,
+        "finite": true,
+        "exact": false
+      },
+      "trajectory": [
+        {
+          "step": 0,
+          "max_abs": 0.8906197547912598,
+          "rms": 0.14876550436019897,
+          "reference_rms": 2.5891458988189697,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 1,
+          "max_abs": 0.4804663062095642,
+          "rms": 0.12407060712575912,
+          "reference_rms": 2.8471901416778564,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 9,
+          "max_abs": 0.48436641693115234,
+          "rms": 0.12352470308542252,
+          "reference_rms": 2.9449691772460938,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 49,
+          "max_abs": 0.3437061309814453,
+          "rms": 0.08822180330753326,
+          "reference_rms": 3.5160036087036133,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 99,
+          "max_abs": 0.3935278654098511,
+          "rms": 0.07269029319286346,
+          "reference_rms": 4.241883754730225,
+          "finite": true,
+          "exact": false
+        },
+        {
+          "step": 198,
+          "max_abs": 9.5196533203125,
+          "rms": 1.814415693283081,
+          "reference_rms": 5.269170761108398,
+          "finite": true,
+          "exact": false
+        }
+      ]
+    }
+  },
+  "diagnostic_structure_comparison": {
+    "candidate_legacy": {
+      "CA_aligned_RMSD_A": 5.230500643407795e-07,
+      "backbone_aligned_RMSD_A": 4.843418641734216e-07,
+      "CA_distance_min_A": 3.77067232131958,
+      "CA_distance_max_A": 3.871387004852295,
+      "finite": true,
+      "sequence_agreement": 1.0
+    },
+    "padded_compiled": {
+      "CA_aligned_RMSD_A": 2.515246643286874,
+      "backbone_aligned_RMSD_A": 2.5055810686406885,
+      "CA_distance_min_A": 3.76788067817688,
+      "CA_distance_max_A": 3.871866464614868,
+      "finite": true,
+      "sequence_agreement": 0.375
+    },
+    "padded_eager": {
+      "CA_aligned_RMSD_A": 2.371656889281735,
+      "backbone_aligned_RMSD_A": 2.39133515558293,
+      "CA_distance_min_A": 3.766246795654297,
+      "CA_distance_max_A": 3.8712947368621826,
+      "finite": true,
+      "sequence_agreement": 0.425
+    },
+    "reference_geometry": {
+      "CA_distance_min_A": 3.77067232131958,
+      "CA_distance_max_A": 3.871387004852295
+    }
+  },
+  "diagnostic_fresh_process_bitwise_replay": {
+    "padded_eager": {
+      "X_L": true,
+      "sequence_logits_I": true,
+      "sequence_indices_I": true,
+      "all_denoised_states_exact": true
+    },
+    "padded_compiled": {
+      "X_L": true,
+      "sequence_logits_I": true,
+      "sequence_indices_I": true,
+      "all_denoised_states_exact": true
+    }
+  },
+  "conclusion": "Component checks pass; default exactness is absent, acceleration changes structures and sequence heads, designability equivalence is unproven. No blanket merge approval."
+}
